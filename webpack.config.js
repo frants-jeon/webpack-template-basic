@@ -2,7 +2,6 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
-require('path')
 
 module.exports = {
   // 파일을 읽어들이기 시작하는 진입점 설정(html로 치면 index.html처럼 뭐 부터 읽을지.)
@@ -18,6 +17,7 @@ module.exports = {
 
   module: {
     rules: [
+      // use는 순서 중요! 뒤에서부터 읽어옴.
       {
         test: /\.s?css$/,
         use: [
@@ -48,7 +48,7 @@ module.exports = {
     })
   ],
 
-  // devServer: {
-  //   host: 'localhost'
-  // }
+  devServer: {
+    host: 'localhost'
+  }
 }
